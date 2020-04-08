@@ -1,6 +1,7 @@
-from handlers import main, Login
+from handlers import Index, Login, Signin
 
 routes = [
-    ('GET', '/', main, 'main'),
-    ('GET', '/login', Login, 'login')
+    ('*', '/', Index, 'index'),
+    ('*', '/login', Login, 'login'),
+    ('*', '/signin', Signin, 'signin')
 ]

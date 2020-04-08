@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+aiohttp_test
+{% endblock %}
+
+{% block head %}
+    <h1>App's main page</h1>
+    <input id="submit" title="submit" type="button" value="submit">
+{% endblock %}
+
+{% block content %}
+<h3>Your links:</h3>
+<ul>
+    {% for item in data %}
+    <li>{{ item[0] }}<a href="{{  item[2]  }}">link</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+
+{% block footer %}
+<p>
+    <input id="logout" title="logout" type="button" value="Log out">
+    <input id="delete_account" title="delete_account" type="button" value="Delete account">
+</p>
+<script type="text/javascript" src="/static/index.js"></script>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h4>
+{{ content }}
+</h4>
+<form autocomplete="on">
+    <div id="error" style="color: red;"></div>
+    <div>
+        <label>New login
+            <input type="text" pattern="[A-Za-zА-Яа-я0-9]{3,}" placeholder="Login" id="new_login" required>
+        </label>
+    </div>
+
+    <div>
+        <label>New password
+            <input type="password" pattern="[A-Za-zА-Яа-я0-9]{8,}" placeholder="Password" id="new_password" required>
+        </label>
+    </div>
+    <p>
+        <input id="submit" title="Submit" type="button" value="Submit">
+        <input id="login" title="Log In" type="button" value="Log In">
+    </p>
+</form>
+{% endblock %}
+
+{% block footer %}
+<script src="/static/signin.js"></script>
+{% endblock %}

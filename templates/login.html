@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h4>
+{{ content }}
+</h4>
+<form autocomplete="on">
+    <div>
+        <label>Your login
+            <input type="text" pattern="[A-Za-zА-Яа-я0-9]" placeholder="Login" id="login" required>
+        </label>
+    </div>
+
+    <div>
+        <label>Your password
+            <input type="password" pattern="[A-Za-zА-Яа-я0-9]" placeholder="Password" id="password" required>
+        </label>
+    </div>
+    <p>
+        <input id="submit" title="Submit" type="button" value="Submit">
+        <input id="signin" title="Sign In" type="button" value="Sign In">
+    </p>
+</form>
+{% endblock %}
+
+{% block footer %}
+<script src="/static/login.js"></script>
+{% endblock %}

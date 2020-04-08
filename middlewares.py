@@ -9,7 +9,7 @@ async def authorize(request, handler):
 
     # kinda self-explanatory?
     def trying_to_log_in(path):
-        for r in ['/login']:
+        for r in ['/login', '/signin', '/static']:
             if path.startswith(r):
                 return True
         return False
@@ -17,7 +17,7 @@ async def authorize(request, handler):
     session = await get_session(request)
 
     # if user is already logged in, let them do their things
-    if session.get('user'):
+    if session.get('user_login'):
         return await handler(request)
 
     # if user is not logged in and not even trying to...
@@ -25,7 +25,6 @@ async def authorize(request, handler):
         # ...step them in the right direction
         url = request.app.router['login'].url_for()
         raise web.HTTPFound(url)
-        return handler(request)
 
     # if user is not logged in, but is trying to
     else:
