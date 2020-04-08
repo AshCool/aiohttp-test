@@ -1,14 +1,19 @@
-import sqlalchemy as sa
+from json import load
 from aiomysql.sa import create_engine
 
+CONFIG_FILE = 'db_settings.json'
+
 async def init_mysql_db(app):
+    with open(CONFIG_FILE) as config:
+        settings = load(config)
+
     engine = await create_engine(
-        host="127.0.0.1",
-        db="main_db",
-        user="root",
-        password="1234",
-        minsize=1,
-        maxsize=10
+        host=settings['host'],
+        db=settings['db'],
+        user=settings['user'],
+        password=settings['password'],
+        minsize=settings['connection_pool_minsize'],
+        maxsize=settings['connection_pool_maxsize']
     )
     app['db'] = engine
     print("engine initialized")
