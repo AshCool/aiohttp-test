@@ -6,14 +6,26 @@ aiohttp_test
 
 {% block head %}
     <h2>Welcome, {{ user }} </h2>
-    <input id="submit" title="submit" type="button" value="submit">
 {% endblock %}
 
 {% block content %}
+<form>
+    <label>New link:
+        <input type="text" pattern="{0, 255}" placeholder="https://docs.google.com/..." id="new_link" required>
+    </label>
+    <input id="add" title="add" type="button" value="Add">
+</form>
+
 <h3>Your links:</h3>
 <ul>
     {% for item in data %}
-    <li>{{ item[0] }}<a href="{{  item[2]  }}">link</a></li>
+    <li>
+        <a href="{{  item[2]  }}">{{  item[2]  }}</a>
+        <p id="{{ item[0] }}">
+            <input title="download" type="button" value="Download" class="download">
+            <input title="delete" type="button" value="Delete" class="delete">
+        </p>
+    </li>
     {% endfor %}
 </ul>
 
@@ -22,6 +34,7 @@ aiohttp_test
 {% block footer %}
 <p>
     <input id="logout" title="logout" type="button" value="Log out">
+    <input id="change_password" title="change_password" type="button" value="Change password">
     <input id="delete_account" title="delete_account" type="button" value="Delete account">
 </p>
 <script type="text/javascript" src="/static/index.js"></script>

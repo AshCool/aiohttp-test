@@ -1,7 +1,8 @@
-from handlers import Index, Login, Signin
+from handlers import Index, Login, Signin, PasswordChange
 
 routes = [
     ('*', '/', Index, 'index'),
     ('*', '/login', Login, 'login'),
-    ('*', '/signin', Signin, 'signin')
+    ('*', '/signin', Signin, 'signin'),
+    ('*', '/passwordchange', PasswordChange, 'passwordchange')
 ]
