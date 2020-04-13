@@ -10,7 +10,7 @@ from middlewares import authorize
 from database_handlers import init_mysql_db, close_mysql_db
 
 async def on_shutdown(app):
-    close_mysql_db(app)
+    await close_mysql_db(app)
     print("shutting down")
 
 # list of middlewares
@@ -26,7 +26,6 @@ aiohttp_jinja2.setup(app, loader=jinja2.FileSystemLoader('templates'))
 
 # adding routes from routes.py to route table
 for route in routes:
-
     app.router.add_route(route[0], route[1], route[2], name=route[3])
 app.add_routes([web.static('/static', 'static')])
 
