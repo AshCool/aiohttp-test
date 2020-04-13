@@ -1,1 +1,1 @@
-{"host": "localhost", "db": "main_db", "user": "root", "password": "1234", "connection_pool_minsize": 1, "connection_pool_maxsize": 10}
+{"host": "sql7.freemysqlhosting.net", "port": 3306, "db": "sql7333195", "user": "sql7333195", "password": "R2m8XX2DvY", "connection_pool_minsize": 1, "connection_pool_maxsize": 10}

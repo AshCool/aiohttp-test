@@ -9,6 +9,7 @@ async def init_mysql_db(app):
 
     engine = await create_engine(
         host=settings['host'],
+        port=settings['port'],
         db=settings['db'],
         user=settings['user'],
         password=settings['password'],
